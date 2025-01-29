@@ -1,0 +1,150 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import Yii from "./icons/Yii.astro"
+import Html from "./icons/Html.astro"
+import Css from "./icons/Css.astro"
+import Php from "./icons/Php.astro"
+import Java from "./icons/Java.astro"
+import Android from "./icons/Android.astro"
+import Javascript from "./icons/Javascript.astro"
+
+import Postgretsql from "./icons/Postgrestsql.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  Yii2: {
+    name: "Yii2",
+    class: "bg-black text-white",  
+    icon: Yii,  
+},
+  Css: {
+    name: "Css",
+    class: "bg-[#6bafd6] text-white",  
+    icon: Css,  
+},
+  Php: {
+    name: "Php",
+    class: "bg-[#babddb] text-Black",  
+    icon: Php,  
+},
+  Html: {
+    name: "Html",
+    class: "bg-[#eba434] text-white",  
+    icon: Html,  
+},
+  JAVA: {
+    name: "Java",
+    class: "bg-[#fce1a7] text-Black",  
+    icon: Java,  
+},
+  ANDROID: {
+    name: "Android Studio",
+    class: "bg-[#bdf0ca] text-Black",  
+    icon: Android,  
+},
+  JAVASCRIPT: {
+    name: "Java    Script",
+    class: "bg-[#f7f5c1] text-Black",  
+    icon: Javascript,  
+},
+  POSTGRETSQL: {
+    name: "PostgretSQL",
+    class: "bg-[#c1d4f7] text-Black",  
+    icon: Postgretsql,  
+}
+
+}
+const PROJECTS = [
+  {
+    title: "ZOONOSIS - Sistema de Seguimiento De Esterilizacion",
+    description:
+      "Sistema Web para el Seguimiento Epidemiológico y Control de Esterilización de Animales. Permite realizar el seguimiento epidemiológico en casos de rabia y gestionar el control de esterilización de animales. Además, facilita la administración de registros de animales y sus propietarios. Desarrollado con el propósito de apoyar a la Dirección de Zoonosis, el sistema está construido desde cero utilizando el Framework Yii, con tecnologías como PHP, HTML y CSS.",
+    link: "https:",
+    github: "https://github.com/matiasramirezbaldiviezo/ProyectoZoonosis",
+    image: "/projects/p_zoonosis_foto.png",
+    tags: [TAGS.Yii2,TAGS.Php,TAGS.Html, TAGS.Css],
+  },
+  {
+    title: "Outfilter - App Creacion y Combinacion de Ropas",
+    description:
+      "Aplicación móvil desarrollada en Android Studio con Java, diseñada para la creación de prendas personalizadas (poleras, pantalones, zapatillas) y la composición de outfits a partir de diferentes combinaciones de prendas. El sistema permite a los usuarios generar diseños a partir de un nombre, una URL opcional y la carga de imágenes desde la galería o la cámara del dispositivo.",
+    link: "https://adventjs.dev",
+    image: "/projects/outfilter_i.jpg",
+    tags: [TAGS.ANDROID, TAGS.JAVA],
+  },
+  {
+    title: "SICOBIM2 - Sistema de Bienes Muebles ",
+    description:
+    "Sistema web desarrollado para la Alcaldía de Tarija, enfocado en la gestión, supervisión y depreciación de bienes muebles. Implementado con PHP para el backend, PostgreSQL para la base de datos, y un frontend basado en HTML, CSS y JavaScript. La arquitectura sigue el patrón MVC para modularidad y escalabilidad. El sistema permite realizar operaciones CRUD, aplicar filtros personalizados y optimizar el cálculo de depreciación en los cierres de gestión, reduciendo el tiempo de procesamiento de 8 horas a 9 minutos en comparación con SICOBIM 1.",
+    link: "https:",
+    github: "https://github.com/matiasramirezbaldiviezo/ProyectoZoonosis",
+    image: "/projects/Sicobim3.png",
+    tags: [TAGS.Php,TAGS.Html, TAGS.Css,TAGS.JAVASCRIPT,TAGS.POSTGRETSQL],
+  },
+  
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>

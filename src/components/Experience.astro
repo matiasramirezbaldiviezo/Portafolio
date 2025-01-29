@@ -1,0 +1,24 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Mar 2024  -  May 2024",
+    title: "Pasante de Desarrollo de Software",
+    company: "Alcaldia Municipa Tarija (unidad de Sistemas y Modernizacion) ",
+    description:
+      "Forme parte de los estudiantes que fueron selecionados para poder desarrollar mi Practica Pre-Profesional encanrgado de la creacion del sistema SICOBIM2 (sistema de biene muebles del departamento)",
+    
+  },
+  
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

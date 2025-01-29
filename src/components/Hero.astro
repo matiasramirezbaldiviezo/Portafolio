@@ -1,0 +1,79 @@
+---
+const personalImageAlt = "Matias Ramirez XX"
+import Badge from "../components/Badge.astro"
+import LinkedInIcon from "../components/icons/LinkedIn.astro"
+import MailIcon from "../components/icons/Mail.astro"
+import SocialPill from "../components/SocialPill.astro"
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <img
+      class="rounded-full shadow-lg size-16"
+      src="https://media.licdn.com/dms/image/v2/D4E03AQEgHDWIjL5-wg/profile-displayphoto-shrink_800_800/B4EZRdvnVcG0Ac-/0/1736739551367?e=1743638400&v=beta&t=BGFPQxIcjpr86h-wycCEfzprARFoGq_yh-aAvlaLUc8"
+      alt={personalImageAlt}
+    />
+    <a
+      href="https://linkedin.com/in/matiasramirz"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+      <Badge>Disponible para trabajar</Badge>
+    </a>
+  </div>
+  <h1
+    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+  >
+    Hola , soy Matias Ramirez
+  </h1>
+  <p
+    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+  >
+     <strong>
+       Ingeniero de Sistemas Júnior</strong
+    > de Tarija, Bolivia 🇧🇴. Full Stack Apasionado por el desarrollo de soluciones eficientes y escalables. Siempre en constante aprendizaje y listo para aportar en proyectos desafiantes.
+  </p>
+  <nav class="flex flex-wrap gap-4 mt-8">
+    <SocialPill href="mailto:matiasramirezbaldiviezo@gmail.com">
+      <MailIcon class="size-4" />
+      Contáctame
+    </SocialPill>
+
+    <SocialPill as="button" id="copy-email">
+      <MailIcon class="size-4" />
+      Copiar correo
+    </SocialPill>
+
+    
+    <SocialPill href="https://linkedin.com/in/matiasramirz">
+      <LinkedInIcon class="size-4" />
+      LinkedIn
+    </SocialPill>
+
+   
+  </nav>
+</div>
+
+<script>
+  const button = document.getElementById('copy-email');
+  
+  if (button) {
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('matiasramirezbaldiviezo@gmail.com');
+        
+        // Optional: Add visual feedback
+        const originalText = button.textContent;
+        button.textContent = '¡Copiado!';
+        
+        // Reset button text after 2 seconds
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy email:', err);
+      }
+    });
+  }
+</script>
