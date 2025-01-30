@@ -13,7 +13,10 @@ import Android from "./icons/Android.astro"
 import Javascript from "./icons/Javascript.astro"
 
 import Postgretsql from "./icons/Postgrestsql.astro"
-
+import Python from "./icons/Python.astro"
+import Pytorch from "./icons/Pytorch.astro"
+import Roboflow from "./icons/Roboflow.astro"
+import Colab from "./icons/Colab.astro"
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -60,6 +63,29 @@ const TAGS = {
     class: "bg-[#f7f5c1] text-Black",  
     icon: Javascript,  
 },
+PYTHON: {
+    name: "Python",
+    class: "bg-[#faeabb] text-Black",  
+    icon: Python,  
+},
+PYTOCH: {
+    name: "Pytorch",
+    class: "bg-[#f7cf88] text-Black",  
+    icon: Pytorch,  
+},
+
+ROBOFLOW: {
+    name: "Roboflow",
+    class: "bg-[#dfc8fa] text-Black",  
+    icon: Roboflow,  
+},
+
+COLAB: {
+    name: "Colab",
+    class: "bg-[#fff4e6] text-Black",  
+    icon: Colab,  
+},
+
   POSTGRETSQL: {
     name: "PostgretSQL",
     class: "bg-[#c1d4f7] text-Black",  
@@ -93,6 +119,15 @@ const PROJECTS = [
     github: "https://github.com/matiasramirezbaldiviezo/ProyectoZoonosis",
     image: "/projects/Sicobim3.png",
     tags: [TAGS.Php,TAGS.Html, TAGS.Css,TAGS.JAVASCRIPT,TAGS.POSTGRETSQL],
+  },
+
+  {
+    title: "CatoIA - Modelo de deteccion de Objetos con Machine Learning - Yolov5s ",
+    description:
+    "Modelo de detección de objetos basado en YOLOv5s, optimizado para identificar placas electrónicas como Arduino, Raspberry Pi y ESP32. Utilicé Roboflow para la anotación y clasificación del dataset, estructurado en 89.64% entrenamiento, 5.45% validación y 4.94% prueba. Entrené el modelo en Python con PyTorch, generando un modelo .pt, posteriormente evaluado en distintos entornos para validar su precisión y rendimiento en tiempo Real.",
+    link: "https://github.com/matiasramirezbaldiviezo/CatoIA/blob/main/README.md",
+    image: "/projects/catoia.jpg",
+    tags: [TAGS.PYTHON,TAGS.ROBOFLOW,TAGS.PYTOCH,TAGS.COLAB],
   },
   
 ]
