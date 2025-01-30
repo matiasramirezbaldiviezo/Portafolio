@@ -3,6 +3,7 @@ import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
+import Googledrive from "./icons/Googledrive.astro"
 import LinkButton from "./LinkButton.astro"
 import Yii from "./icons/Yii.astro"
 import Html from "./icons/Html.astro"
@@ -17,15 +18,16 @@ import Python from "./icons/Python.astro"
 import Pytorch from "./icons/Pytorch.astro"
 import Roboflow from "./icons/Roboflow.astro"
 import Colab from "./icons/Colab.astro"
+import Video from "./icons/Video.astro"
 const TAGS = {
   NEXT: {
     name: "Next.js",
-    class: "bg-black text-white",
+    class: "bg-black text-black",
     icon: NextJS,
   },
   TAILWIND: {
     name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#003159] text-black",
     icon: Tailwind,
   },
   Yii2: {
@@ -35,17 +37,17 @@ const TAGS = {
 },
   Css: {
     name: "Css",
-    class: "bg-[#6bafd6] text-white",  
+    class: "bg-[#6bafd6] text-black",  
     icon: Css,  
 },
   Php: {
     name: "Php",
-    class: "bg-[#babddb] text-Black",  
+    class: "bg-[#babddb] text-black",  
     icon: Php,  
 },
   Html: {
     name: "Html",
-    class: "bg-[#eba434] text-white",  
+    class: "bg-[#eba434] text-black",  
     icon: Html,  
 },
   JAVA: {
@@ -90,6 +92,17 @@ COLAB: {
     name: "PostgretSQL",
     class: "bg-[#c1d4f7] text-Black",  
     icon: Postgretsql,  
+},
+
+GOOGLEDRIVE: {
+    name: "Drive",
+    class: "bg-[#c1d4f7] text-Black",  
+    icon: Googledrive,  
+} , 
+  VIDEO: {
+    name: "Play",
+    class: "bg-[#c1d4f7] text-Black",  
+    icon: Video,  
 }
 
 }
@@ -107,7 +120,8 @@ const PROJECTS = [
     title: "Outfilter - App Creacion y Combinacion de Ropas",
     description:
       "Aplicación móvil desarrollada en Android Studio con Java, diseñada para la creación de prendas personalizadas (poleras, pantalones, zapatillas) y la composición de outfits a partir de diferentes combinaciones de prendas. El sistema permite a los usuarios generar diseños a partir de un nombre, una URL opcional y la carga de imágenes desde la galería o la cámara del dispositivo.",
-    link: "https://adventjs.dev",
+    video: "https://github.com/matiasramirezbaldiviezo/PreviewOutfilter/blob/main/README.md",
+    drive: "https://drive.google.com/drive/folders/1WSegPZyY2h7MmNM-HT2sYqTYO0pQEonX?usp=sharing",
     image: "/projects/outfilter_i.jpg",
     tags: [TAGS.ANDROID, TAGS.JAVA],
   },
@@ -135,7 +149,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ image, title, description, tags, link, github,drive,video }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -147,14 +161,14 @@ const PROJECTS = [
     <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
       {title}
     </h3>
-    <div class="flex flex-wrap mt-2">
+    <div class="flex flex-wrap mt-6">
       <ul class="flex flex-row mb-2 gap-x-2">
           {tags.map((tag) => (
             <li>
               <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                class={`flex gap-x-0 center rounded-full text-s ${tag.class} py-1 px-2 `}
               >
-                <tag.icon class="size-4" />
+                <tag.icon class="w-12 h-7" />
                 {tag.name}
               </span>
             </li>
@@ -170,6 +184,21 @@ const PROJECTS = [
               
             </LinkButton>
           )}
+          { drive && (
+            <LinkButton href={drive}>
+              <Googledrive class="size-6" />
+              Drive
+              
+            </LinkButton>
+          )}
+          {video && (
+            <LinkButton href={video}>
+              <Video class="size-6" />
+              Play
+              
+            </LinkButton>
+          )}
+
           {link && (
             <LinkButton href={link}>
               <Link class="size-4" />
